@@ -8,6 +8,7 @@ const cors = require("cors");
 const allowedOrigins = [
   "http://localhost:5173",
   "https://6952c8edca7514b1a424b6ad--somethingunsaid.netlify.app",
+  "https://somethingunsaid.netlify.app",
 ];
 
 app.use(express.json());
