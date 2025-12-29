@@ -1,6 +1,7 @@
+require("dotenv").config();
 const VALID_CREDENTIALS = {
-  username: "Doraemon",
-  password: "162627",
+  username: process.env.NAME,
+  password: process.env.PASSWORD,
 };
 
 const loginUser = (req, res) => {
