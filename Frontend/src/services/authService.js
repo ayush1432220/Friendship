@@ -1,8 +1,7 @@
 const AuthService = {
-  // Call backend API to verify credentials
   login: async (username, password) => {
     try {
-      const response = await fetch("http://localhost:3000/api/auth/login", {
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL||"http://localhost:3000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
