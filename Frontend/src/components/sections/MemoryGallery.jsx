@@ -10,7 +10,7 @@ const MemoryGallery = () => {
       id: 1,
       title: "An Unexpected Beginning",
       description:
-        "Humari friendship bilkul unexpected thi. Thanks to Abhay Bajpayi sir, jinke wajah se hum uss special din mile — aur wahi se sab kuch shuru hua.",
+        "Humari friendship bilkul unexpected thi. Mera SIH me part lene ka plan or sir ka mujhe tum se milwana fir unhone jis tarah tumse baat krwaya or contact no. dilwaya m bhi bht shocked tha ",
       date: "16 September 2024",
       location: "College Campus",
       emoji: "✨",
@@ -30,7 +30,7 @@ const MemoryGallery = () => {
       id: 3,
       title: "When You Came Back",
       description:
-        "Jab aap wapas ghar se aayi aur hum phir mile. Us moment me hi lag gaya tha ki ye friendship kuch special hone wali hai.",
+        "Jab aap wapas ghar se aayi pehele to aapne ane k liye mujhe mna kiya but jb aapne ha kiya ane k liye us time jo meri khushi thi m bta nhi skta fir m turant ane k liye tyr hua  aur hum phir mile. Us moment me hi lag gaya tha ki ye friendship kuch special hone wali hai.I'm Sooo Sorry for being late ❤️",
       date: "29 October 2024",
       location: "Outside Campus",
       emoji: "💫",
@@ -40,8 +40,8 @@ const MemoryGallery = () => {
       id: 4,
       title: "Chandrika Devi",
       description:
-        "Saath me lunch, hasi–mazaak, aur phir Chandrika Devi mandir jaana. Unplanned tha, par dil ke bahut kareeb.",
-      date: "September 2024",
+        "Tumhara suit me ana aur phir Chandrika Devi mandir jaana. Unplanned tha, mtlb achanak plan bna bhale hi sirf 2hr mile time kam tha but bht accha tha or dil ke bahut kareeb bhi Kyuki vo mera first time tha jb main kisi k sath mtlb ldki k sath khi gya hu vo bhi ek hi scooty prr.",
+      date: "November 2024",
       location: "Chandrika Devi",
       emoji: "🛕",
       color: "from-orange-400 to-amber-500",
@@ -51,7 +51,7 @@ const MemoryGallery = () => {
       title: "Scooty Rides & Crazy Moments",
       description:
         "Tumhara scooty chalana aur wo car ke aage cut maarna 😄 Har meeting unexpected thi, par har ek yaad ban gayi.",
-      date: "October 2024",
+      date: "November 2024",
       location: "Lucknow Roads",
       emoji: "🛵",
       color: "from-green-400 to-emerald-500",
