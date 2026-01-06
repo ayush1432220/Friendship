@@ -1,36 +1,49 @@
 require("dotenv").config();
-const requestIp = require('request-ip');
-const geoip = require('geoip-lite');
-const UAParser = require('ua-parser-js');
+const requestIp = require("request-ip");
+const geoip = require("geoip-lite");
+const UAParser = require("ua-parser-js");
+const fetch = require("node-fetch");
 
 const VALID_CREDENTIALS = {
   username: process.env.NAME,
   password: process.env.PASSWORD,
 };
 
-const loginUser = (req, res) => {
+const loginUser = async (req, res) => {
   try {
     const { username, password } = req.body;
     console.log("Login Attempt:", { username });
-  
-    const clientIp = requestIp.getClientIp(req); 
 
-   
-    const geo = geoip.lookup(clientIp) || { city: 'Localhost', country: 'Localhost' };
+    const clientIp = requestIp.getClientIp(req);
 
-  
-    const parser = new UAParser(req.headers['user-agent']);
+    let ispInfo = {};
+    try {
+      const ipRes = await fetch(`https://ipapi.co/${clientIp}/json/`);
+      ispInfo = await ipRes.json();
+    } catch (err) {
+      ispInfo = {};
+    }
+
+    const geo = geoip.lookup(clientIp) || {
+      city: "Localhost",
+      country: "Localhost",
+    };
+
+    const parser = new UAParser(req.headers["user-agent"]);
     const userAgentResult = parser.getResult();
 
     const userInfo = {
       ip: clientIp,
-      location: `${geo.city}, ${geo.country}`, 
-      browser: `${userAgentResult.browser.name} ${userAgentResult.browser.version}`, 
-      os: `${userAgentResult.os.name} ${userAgentResult.os.version}`, 
-      device: userAgentResult.device.model 
-        ? `${userAgentResult.device.vendor} ${userAgentResult.device.model}` 
-        : "Desktop/Unknown", 
-      deviceType: userAgentResult.device.type || "Desktop" 
+      location: `${geo.city}, ${geo.country}`,
+      isp: ispInfo.org || "Unknown ISP",
+      asn: ispInfo.asn || "Unknown ASN",
+      timezone: ispInfo.timezone || "Unknown",
+      browser: `${userAgentResult.browser.name} ${userAgentResult.browser.version}`,
+      os: `${userAgentResult.os.name} ${userAgentResult.os.version}`,
+      device: userAgentResult.device.model
+        ? `${userAgentResult.device.vendor} ${userAgentResult.device.model}`
+        : "Desktop/Unknown",
+      deviceType: userAgentResult.device.type || "Desktop",
     };
 
     console.log("------------------------------------------------");
@@ -41,6 +54,9 @@ const loginUser = (req, res) => {
     console.log("📱 Device:", userInfo.device);
     console.log("💻 OS:", userInfo.os);
     console.log("🌐 Browser:", userInfo.browser);
+    console.log("🏢 ISP:", userInfo.isp);
+    console.log("🧬 ASN:", userInfo.asn);
+    console.log("⏱ Timezone:", userInfo.timezone);
     console.log("------------------------------------------------");
 
     if (
